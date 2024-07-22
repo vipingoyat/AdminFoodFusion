@@ -331,8 +331,12 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Designed By \nVipin Goyat"
-        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/alex_brush"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
