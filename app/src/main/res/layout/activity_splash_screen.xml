@@ -55,10 +55,11 @@
         android:id="@+id/imageView"
         android:layout_width="427dp"
         android:layout_height="298dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/Pattern" />
+        app:srcCompat="@drawable/pattern" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -104,12 +105,12 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="126dp"
         android:fontFamily="@font/abhaya_libre"
         android:text="Admin Dashboard"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
