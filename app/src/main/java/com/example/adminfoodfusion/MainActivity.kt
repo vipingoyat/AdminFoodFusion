@@ -16,8 +16,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+
         binding.AddMenuCardView.setOnClickListener{
             val intent = Intent(this,AddItemActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        binding.AllItemMenuCardView.setOnClickListener{
+            val intent = Intent(this,AllitemActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
