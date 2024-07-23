@@ -21,13 +21,14 @@
         >
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/DeliveryStatus"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:cardBackgroundColor="#FF4B4B"
+            android:backgroundTint="#FF4B4B"
             app:cardCornerRadius="15dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

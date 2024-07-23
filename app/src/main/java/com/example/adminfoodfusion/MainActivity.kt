@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,OutForDeliveryActivity::class.java)
             startActivity(intent)
         }
+        binding.ProfileCardView.setOnClickListener{
+            val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

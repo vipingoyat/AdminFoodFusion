@@ -1,5 +1,7 @@
 package com.example.adminfoodfusion.Adapter
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +30,11 @@ class DeliveryAdapter(private val customerName:ArrayList<String>, private val pa
             binding.apply {
                 CustomerName.text = customerName[position]
                 PaymentStatus.text = paymentStatus[position]
+                val colorMap = mapOf(
+                    "Delivered" to Color.GREEN, "Not Delivered" to Color.RED,"Pending" to Color.GRAY
+                )
+                PaymentStatus.setTextColor(colorMap[paymentStatus[position]]?:Color.BLACK)
+                DeliveryStatus.backgroundTintList = ColorStateList.valueOf(colorMap[paymentStatus[position]]?:Color.BLACK)
             }
         }
 
