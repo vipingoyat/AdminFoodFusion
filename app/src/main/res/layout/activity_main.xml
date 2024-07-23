@@ -22,12 +22,13 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:layout_width="198dp"
+        android:layout_width="199dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:fontFamily="@font/aladin"
         android:text="Food  Fusion"
-        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textColor="@color/red"
         android:textSize="43sp"
         android:elevation="9dp"
         android:shadowColor="@color/black"
@@ -56,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/problem_icon"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="52dp"
                 android:layout_marginTop="12dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

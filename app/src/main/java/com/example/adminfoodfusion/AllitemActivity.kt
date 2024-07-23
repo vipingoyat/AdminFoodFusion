@@ -19,6 +19,10 @@ class AllitemActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContentView(binding.root)
+
+        binding.AddItemBackButton.setOnClickListener {
+            finish()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -38,7 +42,6 @@ class AllitemActivity : AppCompatActivity() {
             R.drawable.burger_pic,
             R.drawable.rasmalai_pic
         )
-
         val adapter = AllitemAdapter(ArrayList(itemFoodName),ArrayList(itemFoodPrice),ArrayList(itemFoodImage))
         binding.AllitemRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.AllitemRecyclerView.adapter = adapter

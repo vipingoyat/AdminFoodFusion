@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white">
 
 
@@ -13,10 +13,13 @@
         app:cardCornerRadius="12dp"
         android:background="@color/white"
         android:elevation="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="9dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,11 +28,11 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview1"
-                android:layout_width="69dp"
-                android:layout_height="69dp"
-                android:layout_marginLeft="16dp"
+                android:layout_width="73dp"
+                android:layout_height="73dp"
+                android:layout_marginLeft="13dp"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="13dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -50,8 +53,9 @@
                 android:fontFamily="@font/abhaya_libre"
                 android:text="Sandwich"
                 android:textColor="@color/black"
-                android:textSize="17dp"
+                android:textSize="19dp"
                 android:textStyle="bold"
+                android:inputType="textMultiLine"
                 app:layout_constraintStart_toEndOf="@+id/cardview1"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,7 +68,7 @@
                 android:fontFamily="@font/abhaya_libre"
                 android:text="Rs 69"
                 android:textColor="@color/red"
-                android:textSize="17dp"
+                android:textSize="19dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/cardview1"
                 app:layout_constraintTop_toBottomOf="@id/AllitemFoodName" />
@@ -74,17 +78,20 @@
                 android:id="@+id/minusButton"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:layout_marginStart="82dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginRight="66dp"
                 android:src="@drawable/icon_minus__1_"
-                app:layout_constraintStart_toEndOf="@+id/AllitemFoodName"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:layout_editor_absoluteX="269dp" />
 
             <TextView
                 android:id="@+id/AllitemFoodNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
+                android:textColor="@color/black"
+                android:textSize="17dp"
                 android:layout_marginTop="22dp"
                 app:layout_constraintEnd_toStartOf="@+id/plusButton"
                 app:layout_constraintStart_toEndOf="@+id/minusButton"
@@ -104,7 +111,7 @@
                 android:id="@+id/AllitemDeleteIcon"
                 android:layout_width="29dp"
                 android:layout_height="29dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:background="@android:color/transparent"
                 app:srcCompat="@drawable/delete_icon"
                 app:layout_constraintLeft_toLeftOf="@id/minusButton"
