@@ -71,6 +71,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -86,6 +87,7 @@
         android:elevation="18dp"
         android:ems="10"
         android:hint="Password"
+        android:textColor="@color/black"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
         app:layout_constraintEnd_toEndOf="@+id/editTextEmailAddress"
@@ -125,13 +127,13 @@
         android:text="Facebook"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/GoogleButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button2"
+        android:id="@+id/GoogleButton"
         android:layout_width="152dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"

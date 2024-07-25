@@ -2,9 +2,9 @@ import com.android.build.gradle.internal.packaging.defaultExcludes
 import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
+    id("com.google.gms.google-services")
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -42,11 +42,23 @@ android {
 }
 
 dependencies {
-    implementation ("com.google.firebase:firebase-auth:23.0.0")
-    implementation ("com.google.firebase:firebase-database:21.0.0")
 
-    implementation ("com.google.gms:google-services:4.4.2")
-    implementation("com.google.android.gms:play-services-auth:12.0.1")
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+
+    // Add the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-auth")
+
+    // Also add the dependency for the Google Play services library and specify its version
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    //For Glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation (libs.google.services)
+
+    implementation(libs.play.services.auth)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -55,6 +67,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

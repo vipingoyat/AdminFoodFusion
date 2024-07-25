@@ -74,6 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
+                    android:padding="5dp"
                     android:textColor="@color/black"
                     android:hint="Enter the Name...."
                     android:textColorHint="@color/darkGrey"
@@ -111,6 +112,7 @@
                     android:background="@color/white"
                     android:textColor="@color/black"
                     android:hint="Enter the Price...."
+                    android:padding="5dp"
                     android:textColorHint="@color/darkGrey"
                     android:inputType="text"/>
 
@@ -140,17 +142,17 @@
                 android:layout_width="190dp"
                 android:layout_height="130dp"
                 android:layout_marginTop="15dp"
-                app:cardCornerRadius="12dp"
+                app:cardCornerRadius="15dp"
                 app:layout_constraintTop_toBottomOf="@id/AddItemImageTextView"
                 app:layout_constraintLeft_toLeftOf="@id/AddItemImageTextView"
                 app:layout_constraintRight_toRightOf="@id/AddItemImageTextView">
+
                 <ImageView
                     android:id="@+id/AddItemImageImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/pizza_pic"
                     android:scaleType="centerCrop"
-                    />
+                    app:srcCompat="@drawable/pizza_pic" />
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -185,7 +187,7 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/darkGrey"
                     android:textAlignment="inherit"
-                    android:hint="A classic combination that's sure to satisfy any pizza craving!"
+                    android:hint="add description here..."
                     android:inputType="textMultiLine"/>
             </LinearLayout>
 
@@ -221,11 +223,12 @@
                     android:background="@color/white"
                     android:textColor="@color/black"
                     android:textColorHint="@color/darkGrey"
-                    android:hint="Noddle\nSalad\nBurger\nHerbal Pan Cake\nMomos"
+                    android:hint="add ingredients here..."
                     android:inputType="textMultiLine"/>
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AdditemButton"
                 android:layout_width="157dp"
                 android:layout_height="57dp"
                 app:layout_constraintTop_toBottomOf="@id/AddItemIngredientsLinearLayout"
