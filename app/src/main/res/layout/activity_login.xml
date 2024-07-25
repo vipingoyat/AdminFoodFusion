@@ -52,7 +52,6 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/locationTextInputLayout"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="365dp"
         android:layout_height="57dp"
         android:layout_marginTop="8dp"
@@ -61,7 +60,7 @@
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/arrow_circle_down"
-        app:endIconMode="custom"
+        app:endIconMode="dropdown_menu"
         app:errorEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
