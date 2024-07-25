@@ -59,10 +59,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextEmailAddress"
         android:layout_width="332dp"
         android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/mail_icon"
         android:drawablePadding="15dp"
@@ -79,7 +79,7 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="332dp"
         android:layout_height="55dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/edittextshape"
         android:drawableLeft="@drawable/password_lock"
         android:drawablePadding="15dp"
@@ -88,10 +88,10 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailAddress"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintStart_toStartOf="@+id/editTextEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
 
     <TextView
         android:id="@+id/textView8"
@@ -165,7 +165,7 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="13dp"
         android:fontFamily="@font/acme"
         android:text="Designed by \nVipin Goyat"
         android:textAlignment="center"

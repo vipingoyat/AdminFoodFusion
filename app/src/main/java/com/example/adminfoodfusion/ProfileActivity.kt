@@ -17,9 +17,28 @@ class ProfileActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-
         binding.ProfileBackButton.setOnClickListener {
             finish()
+        }
+        binding.AdminName.isEnabled = false
+        binding.AdminAddress.isEnabled = false
+        binding.AdminEmail.isEnabled = false
+        binding.AdminPhone.isEnabled = false
+        binding.AdminPassword.isEnabled = false
+
+        var isEnable = false
+        binding.ClickHere.setOnClickListener {
+            isEnable  =  !isEnable
+            binding.AdminName.isEnabled = isEnable
+            binding.AdminAddress.isEnabled = isEnable
+            binding.AdminEmail.isEnabled = isEnable
+            binding.AdminPhone.isEnabled = isEnable
+            binding.AdminPassword.isEnabled = isEnable
+
+            if(isEnable){
+                binding.AdminName.requestFocus()
+            }
+
         }
 
 

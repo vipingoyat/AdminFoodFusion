@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "342104382137",
+    "project_id": "adminfoodfusion",
+    "storage_bucket": "adminfoodfusion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:342104382137:android:809218b8a33c790a545968",
+        "android_client_info": {
+          "package_name": "com.example.adminfoodfusion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBffmeXj6BsEJJlLC1JKPT0vl3z30e4byU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

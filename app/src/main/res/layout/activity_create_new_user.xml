@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateNewUserActivity"
+    android:background="@drawable/ic_gradient_background">
+
+    <ImageButton
+        android:id="@+id/createuserBackButton"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow_left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
+        android:text="Food Fusion"
+        android:textColor="@color/white"
+        android:textSize="49sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="188dp"
+        android:layout_height="22dp"
+        android:fontFamily="@font/aladin"
+        android:text="Fusion of Taste, Delivered Fast"
+        android:textColor="@color/yellow"
+        android:textColorLink="#CB3333"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/abhaya_libre"
+        android:text="Create New User Admin"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/createUsername"
+        android:layout_width="332dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/name"
+        android:drawablePadding="15dp"
+        android:elevation="8dp"
+        android:hint="Name of the Owner"
+        android:paddingLeft="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/darkGrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView7" />
+
+    <EditText
+        android:id="@+id/createUserEmail"
+        android:layout_width="332dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/mail_icon"
+        android:drawablePadding="15dp"
+        android:elevation="18dp"
+        android:ems="10"
+        android:hint="Email or Phone Number"
+        android:textColorHint="@color/darkGrey"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createUsername"
+        app:layout_constraintStart_toStartOf="@+id/createUsername"
+        app:layout_constraintTop_toBottomOf="@+id/createUsername" />
+
+    <EditText
+        android:id="@+id/createUserPassword"
+        android:layout_width="332dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittextshape"
+        android:drawableLeft="@drawable/password_lock"
+        android:drawablePadding="15dp"
+        android:elevation="18dp"
+        android:ems="10"
+        android:hint="Password"
+        android:textColorHint="@color/darkGrey"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/createUserEmail"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/createUserEmail"
+        app:layout_constraintTop_toBottomOf="@+id/createUserEmail" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="157dp"
+        android:layout_height="57dp"
+        app:layout_constraintTop_toBottomOf="@id/createUserPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/red_button"
+        android:textColor="@color/white"
+        android:text="Create User"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:elevation="5dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

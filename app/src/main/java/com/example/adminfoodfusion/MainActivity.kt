@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,AddItemActivity::class.java)
             startActivity(intent)
         }
-
-
         binding.AllItemMenuCardView.setOnClickListener{
             val intent = Intent(this,AllitemActivity::class.java)
             startActivity(intent)
@@ -34,6 +32,18 @@ class MainActivity : AppCompatActivity() {
         }
         binding.ProfileCardView.setOnClickListener{
             val intent = Intent(this,ProfileActivity::class.java)
+            startActivity(intent)
+        }
+        binding.CreateNewUserCardView.setOnClickListener{
+            val intent = Intent(this,CreateNewUserActivity::class.java)
+            startActivity(intent)
+        }
+        binding.pendinordertextview.setOnClickListener {
+            val intent = Intent(this,PendingOrdersActivity::class.java)
+            startActivity(intent)
+        }
+        binding.pendingOrderIcon.setOnClickListener {
+            val intent = Intent(this,PendingOrdersActivity::class.java)
             startActivity(intent)
         }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
