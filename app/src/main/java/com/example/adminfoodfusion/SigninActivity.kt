@@ -77,10 +77,16 @@ class SigninActivity : AppCompatActivity() {
             val signinIntent = googleSignInclient.signInIntent
             launcher.launch(signinIntent)
         }
+
+
+
         binding.donthavebutton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -88,6 +94,8 @@ class SigninActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     private fun verifyUserAccount(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
@@ -102,6 +110,9 @@ class SigninActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 
     private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         result ->

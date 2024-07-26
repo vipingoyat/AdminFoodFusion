@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/red">
+    android:background="@color/white">
 
 
     <ImageView
@@ -14,7 +14,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:elevation="8dp"
         android:outlineSpotShadowColor="@color/yellow"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +24,11 @@
     <TextView
         android:layout_width="199dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/aladin"
         android:text="Food  Fusion"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/red"
         android:textSize="43sp"
         android:elevation="9dp"
         android:shadowColor="@color/black"
@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="120dp"
         app:cardCornerRadius="12dp"
         android:elevation="8dp"
         android:background="@color/white">
@@ -336,7 +336,7 @@
         android:fontFamily="@font/alex_brush"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:textColor="@color/white"
+        android:textColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
