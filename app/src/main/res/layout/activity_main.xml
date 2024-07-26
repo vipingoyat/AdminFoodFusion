@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/white">
+    android:background="@color/red">
 
 
     <ImageView
@@ -28,7 +28,7 @@
         android:fontFamily="@font/aladin"
         android:text="Food  Fusion"
         android:textAlignment="center"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         android:textSize="43sp"
         android:elevation="9dp"
         android:shadowColor="@color/black"
@@ -109,7 +109,7 @@
                 android:layout_marginTop="12dp"
                 app:layout_constraintLeft_toRightOf="@id/completedOrderIcon"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -336,7 +336,7 @@
         android:fontFamily="@font/alex_brush"
         android:textStyle="bold"
         android:textSize="16sp"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

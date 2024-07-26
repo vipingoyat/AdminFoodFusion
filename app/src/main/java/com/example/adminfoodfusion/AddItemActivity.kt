@@ -2,6 +2,8 @@ package com.example.adminfoodfusion
 
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
@@ -27,7 +29,12 @@ class AddItemActivity : AppCompatActivity() {
     //Firebase
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseDatabase
-
+    fun showSoftKeyboard(view: View) {
+        if (view.requestFocus()) {
+            val imm = getSystemService(InputMethodManager::class.java)
+            imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+        }
+    }
     private val binding:ActivityAddItemBinding by lazy{
         ActivityAddItemBinding.inflate(layoutInflater)
     }
@@ -35,6 +42,7 @@ class AddItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+        showSoftKeyboard(binding.root)
 
 
         binding.AddItemBackButton.setOnClickListener {
@@ -128,4 +136,5 @@ class AddItemActivity : AppCompatActivity() {
         foodImageUri=uri
         }
     }
+
 }
