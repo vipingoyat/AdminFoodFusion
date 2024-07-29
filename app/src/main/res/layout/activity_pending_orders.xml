@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PendingOrdersActivity">
+    tools:context=".PendingOrdersActivity"
+    android:background="@color/white">
 
 
 
