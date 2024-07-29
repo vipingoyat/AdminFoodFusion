@@ -5,17 +5,40 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.adminfoodfusion.Adapter.PendingOrderAdapter
 import com.example.adminfoodfusion.databinding.ActivityPendingOrdersBinding
+import com.example.adminfoodfusion.model.OrderDetails
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+
 class PendingOrdersActivity : AppCompatActivity() {
     private val binding:ActivityPendingOrdersBinding by lazy{
         ActivityPendingOrdersBinding.inflate(layoutInflater)
     }
+    private var listOfName:MutableList<String> = mutableListOf()
+    private var listOfTotalPrice:MutableList<String> = mutableListOf()
+    private var listOfImageFirstFoodOrder:MutableList<String> = mutableListOf()
+    private var listOfOrderItem:MutableList<OrderDetails> = mutableListOf()
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var databaseOrderDetails: DatabaseReference
+    private lateinit var adapter:PendingOrderAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+        //Database Initialization
+        database = FirebaseDatabase.getInstance()
+
+        //DatabaseReference Initialization
+        databaseOrderDetails = database.reference.child("OrderDetails")
+
+        getOrderDetails()
+
 
         binding.pendingorderBackButton.setOnClickListener {
             finish()
@@ -26,20 +49,45 @@ class PendingOrdersActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val itemFoodName = listOf("Sandwich", "Pizza", "Burger","Rasmalai","Sandwich", "Pizza", "Burger","Rasmalai")
-        val itemQuantity = listOf("4", "12", "8","5","6", "1", "3","9")
-        val itemImage = listOf(
-            R.drawable.sandwich_pic,
-            R.drawable.pizza_pic,
-            R.drawable.burger_pic,
-            R.drawable.rasmalai_pic,
-            R.drawable.sandwich_pic,
-            R.drawable.pizza_pic,
-            R.drawable.burger_pic,
-            R.drawable.rasmalai_pic
-        )
-        val adapter = PendingOrderAdapter(ArrayList(itemFoodName),ArrayList(itemQuantity),ArrayList(itemImage),this)
-        binding.pendingOrderRecyclerView.adapter = adapter
+    }
+
+    private fun getOrderDetails() {
+        //retrieve the data from firebase
+        databaseOrderDetails.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(orderSnapshot in snapshot.children){
+                    val orderDetails = orderSnapshot.getValue(OrderDetails::class.java)
+                    orderDetails?.let {
+                        listOfOrderItem.add(it)
+                    }
+                }
+                addDataToListForRecyclerView()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    private fun addDataToListForRecyclerView() {
+        for(orderItem in listOfOrderItem){
+            //add data to respective lists
+            orderItem.userName?.let { listOfName.add(it) }
+            orderItem.totalPrice?.let{listOfTotalPrice.add(it.toString())}
+            orderItem.foodImages?.filterNot { it.isEmpty() }?.forEach {
+                listOfImageFirstFoodOrder.add(it)
+            }
+        }
+        // Log the listOfName
+        android.util.Log.d("PendingOrderAdapter", "List Sizes: Name=${listOfName.size}, Quantity=${listOfTotalPrice.size}, Image=${listOfImageFirstFoodOrder.size}")
+        setAdapter()
+    }
+
+    private fun setAdapter() {
+        adapter = PendingOrderAdapter(this,listOfName,listOfTotalPrice,listOfImageFirstFoodOrder)
         binding.pendingOrderRecyclerView.layoutManager = LinearLayoutManager(this)
+        binding.pendingOrderRecyclerView.adapter = adapter
     }
 }
