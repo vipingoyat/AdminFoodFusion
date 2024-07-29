@@ -5,6 +5,7 @@ import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,9 +16,12 @@ class PendingOrderAdapter(
     private val CustomerName: MutableList<String>,
     private val Quatity: MutableList<String>,
     private val image: MutableList<String>,
+    private val itemClicked: OnitemClicked,
 ) : RecyclerView.Adapter<PendingOrderAdapter.PendingOrderViewHolder>() {
 
-
+interface OnitemClicked{
+    fun OnItemClickListener(position: Int)
+}
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
         val binding =
             PendingOrdersItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -65,6 +69,9 @@ class PendingOrderAdapter(
                             showtoast("Order is Dispatched")
                         }
                     }
+                }
+                itemView.setOnClickListener {
+                    itemClicked.OnItemClickListener(position)
                 }
             }
         }

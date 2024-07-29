@@ -5,6 +5,197 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrdersDetailActivity">
+    tools:context=".OrdersDetailActivity"
+    android:background="@color/white">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backButtonEdit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="12dp"
+        android:backgroundTint="@color/red"
+        android:elevation="15dp"
+        android:background="@drawable/arrow_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="17dp"/>
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/aladin"
+        android:text="Details"
+        android:textColor="@color/red"
+        android:textSize="38sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
+        android:background="@drawable/edittextshape">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:fontFamily="@font/acme"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:textSize="19sp"
+            android:textColor="@color/black"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="text"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout1"
+        android:background="@drawable/edittextshape">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="63dp"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/acme"
+            android:gravity="center_vertical"
+            android:text="Address"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/customerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout2"
+        android:background="@drawable/edittextshape">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/acme"
+            android:text="Phone Number"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+        <TextView
+            android:id="@+id/customerPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginLeft="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout3"
+        android:background="@drawable/edittextshape">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/acme"
+            android:text="Phone Number"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/orderTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:gravity="end"
+            android:paddingRight="32dp"
+            android:text="2"
+            android:textColor="@color/green"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/OrderDetailRecyclerView"
+        android:layout_width="409dp"
+        android:layout_height="387dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout4"
+        tools:listitem="@layout/order_details_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

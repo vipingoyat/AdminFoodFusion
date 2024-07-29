@@ -1,5 +1,8 @@
 package com.example.adminfoodfusion
+
+import android.content.Intent
 import android.os.Bundle
+import android.widget.AdapterView.OnItemClickListener
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,18 +17,18 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class PendingOrdersActivity : AppCompatActivity() {
-    private val binding:ActivityPendingOrdersBinding by lazy{
+class PendingOrdersActivity : AppCompatActivity(), PendingOrderAdapter.OnitemClicked {
+    private val binding: ActivityPendingOrdersBinding by lazy {
         ActivityPendingOrdersBinding.inflate(layoutInflater)
     }
-    private var listOfName:MutableList<String> = mutableListOf()
-    private var listOfTotalPrice:MutableList<String> = mutableListOf()
-    private var listOfImageFirstFoodOrder:MutableList<String> = mutableListOf()
-    private var listOfOrderItem:MutableList<OrderDetails> = mutableListOf()
+    private var listOfName: MutableList<String> = mutableListOf()
+    private var listOfTotalPrice: MutableList<String> = mutableListOf()
+    private var listOfImageFirstFoodOrder: MutableList<String> = mutableListOf()
+    private var listOfOrderItem: ArrayList<OrderDetails> = arrayListOf()
 
     private lateinit var database: FirebaseDatabase
     private lateinit var databaseOrderDetails: DatabaseReference
-    private lateinit var adapter:PendingOrderAdapter
+    private lateinit var adapter: PendingOrderAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,9 +56,9 @@ class PendingOrdersActivity : AppCompatActivity() {
 
     private fun getOrderDetails() {
         //retrieve the data from firebase
-        databaseOrderDetails.addListenerForSingleValueEvent(object :ValueEventListener{
+        databaseOrderDetails.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                for(orderSnapshot in snapshot.children){
+                for (orderSnapshot in snapshot.children) {
                     val orderDetails = orderSnapshot.getValue(OrderDetails::class.java)
                     orderDetails?.let {
                         listOfOrderItem.add(it)
@@ -72,22 +75,33 @@ class PendingOrdersActivity : AppCompatActivity() {
     }
 
     private fun addDataToListForRecyclerView() {
-        for(orderItem in listOfOrderItem){
+        for (orderItem in listOfOrderItem) {
             //add data to respective lists
             orderItem.userName?.let { listOfName.add(it) }
-            orderItem.totalPrice?.let{listOfTotalPrice.add(it.toString())}
+            orderItem.totalPrice?.let { listOfTotalPrice.add(it.toString()) }
             orderItem.foodImages?.filterNot { it.isEmpty() }?.forEach {
                 listOfImageFirstFoodOrder.add(it)
             }
         }
         // Log the listOfName
-        android.util.Log.d("PendingOrderAdapter", "List Sizes: Name=${listOfName.size}, Quantity=${listOfTotalPrice.size}, Image=${listOfImageFirstFoodOrder.size}")
+        android.util.Log.d(
+            "PendingOrderAdapter",
+            "List Sizes: Name=${listOfName.size}, Quantity=${listOfTotalPrice.size}, Image=${listOfImageFirstFoodOrder.size}"
+        )
         setAdapter()
     }
 
     private fun setAdapter() {
-        adapter = PendingOrderAdapter(this,listOfName,listOfTotalPrice,listOfImageFirstFoodOrder)
+        adapter =
+            PendingOrderAdapter(this, listOfName, listOfTotalPrice, listOfImageFirstFoodOrder, this)
         binding.pendingOrderRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.pendingOrderRecyclerView.adapter = adapter
+    }
+
+    override fun OnItemClickListener(position: Int) {
+        val intent = Intent(this, OrdersDetailActivity::class.java)
+        val userOrderDetails = listOfOrderItem[position]
+        intent.putExtra("UserOrderDetails", userOrderDetails)
+        startActivity(intent)
     }
 }
