@@ -14,7 +14,8 @@ import java.net.URI
 class AllitemAdapter(
     private val context: Context,
     private val menuList:ArrayList<AllMenu>,
-    databaseReference: DatabaseReference
+    databaseReference: DatabaseReference,
+    private val onDeleteClickListener:(position : Int)->Unit
 ) : RecyclerView.Adapter<AllitemAdapter.AllitemViewHolder>() {
 
     private val itemQuantities = IntArray(menuList.size) { 1 }
@@ -52,7 +53,7 @@ class AllitemAdapter(
                     increaseQuantity(position)
                 }
                 AllitemDeleteIcon.setOnClickListener {
-                    deleteItem(position)
+                    onDeleteClickListener(position)
                 }
             }
 

@@ -2,6 +2,7 @@ package com.example.adminfoodfusion
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -73,8 +74,28 @@ class AllitemActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        val adapter = AllitemAdapter(this@AllitemActivity,menuItems,databaseReference)
+
+        val adapter = AllitemAdapter(this@AllitemActivity,menuItems,databaseReference){ position ->
+            deleteMenuItems(position)
+        }
         binding.AllitemRecyclerView.layoutManager = LinearLayoutManager(this)
         binding.AllitemRecyclerView.adapter = adapter
+    }
+
+    private fun deleteMenuItems(position: Int) {
+        val menuItemToDelete = menuItems[position]
+        val menuItemKey = menuItemToDelete.key
+        val menuFoodReference= database.reference.child("menu").child(menuItemKey!!)
+        menuFoodReference.removeValue().addOnCompleteListener { task->
+            if(task.isSuccessful){
+                menuItems.removeAt(position)
+                binding.AllitemRecyclerView.adapter?.notifyItemRemoved(position)
+
+                Toast.makeText(this,"Item Deleted",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this,"Item Not Deleted", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

@@ -30,8 +30,8 @@
 
             <ImageButton
                 android:id="@+id/AddItemBackButton"
-                android:layout_width="39dp"
-                android:layout_height="39dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 android:src="@drawable/arrow_left"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +49,7 @@
                 android:textSize="30sp"
                 android:textColor="@color/red"
                 android:textStyle="bold"
-                android:layout_marginTop="31dp"
+                android:layout_marginTop="30dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
