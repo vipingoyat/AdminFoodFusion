@@ -145,8 +145,8 @@ class PendingOrdersActivity : AppCompatActivity(), PendingOrderAdapter.OnitemCli
         val userIdofClickedItem = listOfOrderItem[position].userUid
         val pushKeyOfClickedItem = listOfOrderItem[position].itemPushKey
         val buyHistoryReference = database.reference.child("user").child(userIdofClickedItem!!).child("Buy History").child(pushKeyOfClickedItem!!)
-        buyHistoryReference.child("AcceptedOrder").setValue(true)
-        databaseOrderDetails.child(pushKeyOfClickedItem).child("AcceptedOrder").setValue(true)
+        buyHistoryReference.child("orderAccepted").setValue(true)
+        databaseOrderDetails.child(pushKeyOfClickedItem).child("orderAccepted").setValue(true)
 
     }
 }
