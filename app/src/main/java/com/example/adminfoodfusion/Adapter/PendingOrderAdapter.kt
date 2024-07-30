@@ -21,6 +21,8 @@ class PendingOrderAdapter(
 
 interface OnitemClicked{
     fun OnItemClickListener(position: Int)
+    fun OnItemAcceptClickListener(position: Int)
+    fun OnItemDispatchClickListener(position: Int)
 }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PendingOrderViewHolder {
         val binding =
@@ -63,10 +65,12 @@ interface OnitemClicked{
                             text = "Dispatch"
                             isAccepted = true
                             showtoast("Order is Accepted")
+                            itemClicked.OnItemAcceptClickListener(position)
                         } else {
                             CustomerName.removeAt(adapterPosition)
                             notifyItemRemoved(adapterPosition)
                             showtoast("Order is Dispatched")
+                            itemClicked.OnItemDispatchClickListener(position)
                         }
                     }
                 }
