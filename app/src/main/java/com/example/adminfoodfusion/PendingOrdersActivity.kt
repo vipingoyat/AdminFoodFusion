@@ -69,7 +69,7 @@ class PendingOrdersActivity : AppCompatActivity(), PendingOrderAdapter.OnitemCli
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
 
         })
@@ -112,7 +112,7 @@ class PendingOrdersActivity : AppCompatActivity(), PendingOrderAdapter.OnitemCli
         val clickItemOrderReference = childItemPushKey?.let {
             database.reference.child("OrderDetails").child(it)
         }
-        clickItemOrderReference?.child("AcceptedOrder")?.setValue(true)
+        clickItemOrderReference?.child("orderAccepted")?.setValue(true)
         updateOrderAcceptStatus(position)
 
     }
