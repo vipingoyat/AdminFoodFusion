@@ -7,11 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminfoodfusion.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
     private val binding:ActivityMainBinding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
     }
+    private lateinit var database: FirebaseDatabase
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -46,10 +50,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,PendingOrdersActivity::class.java)
             startActivity(intent)
         }
+
+        pendingOrder()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun pendingOrder() {
+
     }
 }
