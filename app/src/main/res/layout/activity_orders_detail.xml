@@ -168,7 +168,7 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:fontFamily="@font/acme"
-            android:text="Phone Number"
+            android:text="Total Payment"
             android:textColor="@color/black"
             android:textSize="19sp" />
 
