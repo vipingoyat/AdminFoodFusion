@@ -7,8 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adminfoodfusion.databinding.ActivityMainBinding
+import com.example.adminfoodfusion.model.OrderDetails
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
     private val binding:ActivityMainBinding by lazy{
@@ -16,10 +21,14 @@ class MainActivity : AppCompatActivity() {
     }
     private lateinit var database: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
+    private lateinit var completedOrderReference: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
+
+
+        database = FirebaseDatabase.getInstance()
 
 
         binding.AddMenuCardView.setOnClickListener{
@@ -51,7 +60,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        pendingOrder()
+        pendingOrders()
+        completedOrders()
+        totalEarning()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -60,7 +71,64 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun pendingOrder() {
+    private fun totalEarning() {
+        var listOfTotalPay = mutableListOf<Int>()
+        completedOrderReference = FirebaseDatabase.getInstance().reference.child("CompletedOrder")
+        completedOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(orderSnapshot in snapshot.children){
+                    var completedOrder = orderSnapshot.getValue(OrderDetails::class.java)
 
+                    completedOrder?.totalPrice?.replace("Rs ","")?.toIntOrNull()
+                        ?.let { i ->
+                            listOfTotalPay.add(i)
+                        }
+                }
+                binding.EarningText.text = "Rs " + listOfTotalPay.sum().toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
+
+    private fun completedOrders() {
+
+        var completedOrderReference = database.reference.child("CompletedOrder")
+        var completedOrderItemCount = 0
+
+
+        completedOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                completedOrderItemCount = snapshot.childrenCount.toInt()
+                binding.CompletedOrderText.text = completedOrderItemCount.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
+    }
+
+    private fun pendingOrders() {
+
+        var pendingOrderReference = database.reference.child("OrderDetails")
+        var pendingOrderItemCount = 0
+
+
+        pendingOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                pendingOrderItemCount = snapshot.childrenCount.toInt()
+                binding.PendingOrderText.text = pendingOrderItemCount.toString()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
     }
 }
