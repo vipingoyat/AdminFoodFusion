@@ -27,10 +27,15 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-
+        auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
 
+        binding.LogOutCardView.setOnClickListener{
+            auth.signOut()
+            startActivity(Intent(this,SigninActivity::class.java))
+            finish()
+        }
         binding.AddMenuCardView.setOnClickListener{
             val intent = Intent(this,AddItemActivity::class.java)
             startActivity(intent)
@@ -48,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.CreateNewUserCardView.setOnClickListener{
-            val intent = Intent(this,CreateNewUserActivity::class.java)
+            val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
         binding.pendinordertextview.setOnClickListener {
@@ -59,11 +64,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,PendingOrdersActivity::class.java)
             startActivity(intent)
         }
-
         pendingOrders()
         completedOrders()
         totalEarning()
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -86,11 +89,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 binding.EarningText.text = "Rs " + listOfTotalPay.sum().toString()
             }
-
             override fun onCancelled(error: DatabaseError) {
-
             }
-
         })
     }
 
@@ -98,18 +98,13 @@ class MainActivity : AppCompatActivity() {
 
         var completedOrderReference = database.reference.child("CompletedOrder")
         var completedOrderItemCount = 0
-
-
         completedOrderReference.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 completedOrderItemCount = snapshot.childrenCount.toInt()
                 binding.CompletedOrderText.text = completedOrderItemCount.toString()
             }
-
             override fun onCancelled(error: DatabaseError) {
-
             }
-
         })
     }
 

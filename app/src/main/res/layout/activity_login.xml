@@ -73,6 +73,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/acme"
             android:hint="Choose Location"
+            android:paddingLeft="12dp"
             android:inputType="none"
             android:visibility="visible" />
     </com.google.android.material.textfield.TextInputLayout>

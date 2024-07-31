@@ -79,6 +79,7 @@
             android:background="@android:color/transparent"
             android:padding="10dp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:gravity="center_vertical"
             android:inputType="text"
             android:hint="Saurabh Sharma"/>
@@ -113,6 +114,7 @@
             android:background="@android:color/transparent"
             android:padding="10dp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:gravity="center_vertical"
             android:inputType="text"
             android:hint="Sadar Bazar, Hansi"/>
@@ -148,6 +150,7 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:textColor="@color/black"
             android:inputType="textEmailAddress"
             android:hint="abcde@gmail.com"/>
     </LinearLayout>
@@ -180,6 +183,7 @@
             android:background="@android:color/transparent"
             android:padding="10dp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:gravity="center_vertical"
             android:inputType="number"
             android:hint="1234567890"/>
@@ -215,12 +219,14 @@
             android:padding="10dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:textColor="@color/black"
             android:inputType="textPassword"
             android:hint="*************"/>
     </LinearLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/SaveInformationButton"
         android:layout_width="300dp"
         android:layout_height="57dp"
         android:layout_marginBottom="38dp"

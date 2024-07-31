@@ -52,16 +52,6 @@
         app:srcCompat="@drawable/male_person" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="427dp"
-        android:layout_height="298dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/pattern" />
-
-    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="76dp"
         android:layout_height="66dp"
